@@ -1,0 +1,12 @@
+{
+  "test": {
+    "PORT": 8080,
+    "MONGODB_URI": "mongodb://localhost:27017/MindfulnessTest",
+    "JWT_SECRET": "jh13u5dfadskjhk23423lj"
+  },
+  "development": {
+    "PORT": 8080,
+    "MONGODB_URI": "mongodb://localhost:27017/Mindfulness",
+    "JWT_SECRET": " bn1v2b5jv2465h3kjtb3kbn"
+  }
+}
