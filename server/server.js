@@ -4,6 +4,7 @@ const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
 const {ObjectID} = require('mongodb');
+const cors = require('cors');
 
 var {mongoose} = require('./db/mongoose');
 var {Event} = require('./models/event');
@@ -15,6 +16,7 @@ const port = process.env.PORT;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 
 app.post('/api/events', authenticate, (req, res) => {
@@ -87,7 +89,7 @@ app.delete('/api/events/:id', authenticate, (req, res) => {
 
 app.patch('/api/events/:id', authenticate, (req, res) => {
   var id = req.params.id;
-  var body = _.pick(req.body, ['text', 'habits']);
+  var body = _.pick(req.body, ['title', 'description', 'date']);
 
   if (!ObjectID.isValid(id)) {
     return res.status(404).send();
